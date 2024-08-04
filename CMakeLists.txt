@@ -17,13 +17,13 @@ find_package(CUDA REQUIRED)
 include_directories(/usr/local/cuda/samples/common/inc)
 
 
-add_executable(cudaComputeMatrix main.cpp)
+#add_executable(cudaComputeMatrix main.cpp)
 
-set(CUDA_SRC
-        cudaComputeMatrix.cuh
-        cudaComputeMatrix.cu)
-cuda_add_library(CUDA_LIB ${CUDA_SRC}) #使用 cuda_add_library 命令将CUDA源文件编译为一个CUDA库（.lib 或 .a 文件）。
-target_link_libraries(cudaComputeMatrix ${CUDA_CUDA_LIBRARY} CUDA_LIB)
+#set(CUDA_SRC
+#        cudaComputeMatrix.cuh
+#        cudaComputeMatrix.cu)
+#cuda_add_library(CUDA_LIB ${CUDA_SRC}) #使用 cuda_add_library 命令将CUDA源文件编译为一个CUDA库（.lib 或 .a 文件）。
+#target_link_libraries(cudaComputeMatrix ${CUDA_CUDA_LIBRARY} CUDA_LIB)
 
 
 add_executable(global_memory global_memory.cu)
@@ -40,3 +40,6 @@ target_link_libraries(GPU_cache ${CUDA_CUDA_LIBRARY})
 
 add_executable(CUDA_info CUDA_info.cu)
 target_link_libraries(CUDA_info ${CUDA_CUDA_LIBRARY})
+
+add_executable(matrix_add_gpu matrix_add_gpu.cu)
+target_link_libraries(matrix_add_gpu ${CUDA_CUDA_LIBRARY})
